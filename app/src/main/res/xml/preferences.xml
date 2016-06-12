@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference android:title="@string/txtProjektHint"
+        android:key="projekt"
+        android:summary="@string/pref_projekt"/>
+    <EditTextPreference android:title="@string/txtEinrichtungHint"
+        android:key="einrichtung"
+        android:summary="@string/pref_einrichtung"
+        android:singleLine="true" />
+    <SwitchPreference android:title="@string/hint_scrollto"
+        android:key="scrolltopos"
+        android:summary="@string/hint_scrolltomain"
+        android:singleLine="false"
+        android:defaultValue="true" />
+</PreferenceScreen>

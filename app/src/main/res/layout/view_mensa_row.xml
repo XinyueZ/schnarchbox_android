@@ -1,0 +1,56 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="380dp"
+    android:layout_margin="8dp"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--<ImageView
+            android:id="@+id/thumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_alignParentTop="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/art_material_metaphor" />-->
+
+        <com.github.pwittchen.weathericonview.WeatherIconView
+            android:id="@+id/my_weather_icon"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            custom:weatherIconResource="@string/wi_day_sunny_overcast"
+            custom:weatherIconColor="@android:color/black"
+            custom:weatherIconSize="100"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/my_weather_icon"
+            android:maxLines="3"
+            android:padding="8dp"
+            android:textColor="#222"
+            android:textStyle="normal"
+            android:textSize="22dp"
+            android:gravity="center_horizontal"
+            android:fontFamily="sans-serif-thin" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:maxLines="3"
+            android:padding="8dp"
+            android:textColor="#666"
+            android:textSize="14dp" />
+
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

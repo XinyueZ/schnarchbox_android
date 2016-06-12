@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="aboutlibraries-5.5.6">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.mikepenz/aboutlibraries/5.5.6/res" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.mikepenz/aboutlibraries/5.5.6/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mikepenz/aboutlibraries/5.5.6/69cc1643f3345ea9562f07479434f4af263465dd/aboutlibraries-5.5.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

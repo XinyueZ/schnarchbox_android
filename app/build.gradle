@@ -1,0 +1,98 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.getkeepsafe.dexcount'
+
+def versionMajor = 0    // production major
+def versionMinor = 4    // production minor
+def versionPatch = 7    // bugfix release
+def versionBuild = 0    // alpha / beta / release candidate
+def buildTime = new Date().format("dd-MM-yyyy'T'HH:mm'Z'", TimeZone.getTimeZone("UTC"))
+
+android {
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        applicationId "de.jw.mymensa"
+
+        minSdkVersion rootProject.ext.defaultMinSdkVersion
+        targetSdkVersion rootProject.ext.defaultTargetSdkVersion
+        versionCode buildVersionCode(versionMajor, versionMinor, versionPatch, versionBuild)
+        versionName buildVersionName(versionMajor, versionMinor, versionPatch)
+
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    packagingOptions {
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'LICENSE'
+        exclude 'NOTICE'
+        exclude 'asm-license.txt'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    project.ext { appName = 'my_mensa_beta' }
+                    def newName = output.outputFile.name
+                    newName = newName.replace("app-", "$project.ext.appName-") //"MyAppName" -> I set my app variables in the root project
+                    newName = newName.replace("-release", "")
+                    //noinspection GroovyAssignabilityCheck
+                    output.outputFile = new File(output.outputFile.parent, newName)
+                }
+            }
+        }
+        debug {
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile rootProject.ext.libraries.android_support_v7
+    compile rootProject.ext.libraries.android_support_design
+    compile rootProject.ext.libraries.android_support_rclrv
+    compile rootProject.ext.libraries.butterknife
+    compile rootProject.ext.libraries.dagger
+    apt rootProject.ext.libraries.dagger_compiler
+    compile rootProject.ext.libraries.icepick
+    apt rootProject.ext.libraries.icepick_processor
+    compile rootProject.ext.libraries.javax_inject
+    compile rootProject.ext.libraries.mosby
+    compile rootProject.ext.libraries.retrofit
+    compile rootProject.ext.libraries.rxandroid
+    compile rootProject.ext.libraries.rxjava
+    compile rootProject.ext.libraries.timber
+    compile rootProject.ext.libraries.fastscroll
+    compile rootProject.ext.libraries.materialintro
+    compile rootProject.ext.libraries.stringutils
+    compile rootProject.ext.libraries.materialripple
+    compile rootProject.ext.libraries.recyclerviewanimations
+    compile rootProject.ext.libraries.rxpreferences
+    compile(rootProject.ext.libraries.aboutlibraries) {
+        transitive = true
+    }
+    compile rootProject.ext.libraries.swipelistview
+
+    //compile rootProject.ext.libraries.materialpreferences
+
+    testCompile rootProject.ext.libraries.junit
+    testCompile rootProject.ext.libraries.mockito
+    compile 'com.android.support:support-v4:23.4.0'
+    compile 'com.android.support:support-vector-drawable:23.4.0'
+    compile 'com.github.pwittchen:weathericonview:1.1.0'
+}
+
+def buildVersionName(versionMajor, versionMinor, versionPatch) {
+    return "${versionMajor}.${versionMinor}.${versionPatch}"
+}
+
+def buildVersionCode(versionMajor, versionMinor, versionPatch, versionBuild) {
+    return versionMajor * 1000 + versionMinor * 100 + versionPatch * 10 + versionBuild
+}

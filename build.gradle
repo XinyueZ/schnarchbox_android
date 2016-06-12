@@ -1,0 +1,96 @@
+ext {
+    buildToolsVersion               = "23.0.3"
+    compileSdkVersion               = 23
+    defaultMinSdkVersion            = 15
+    defaultTargetSdkVersion         = 23
+
+    // APP
+    android_support_version         = "23.2.1"
+    android_support_design_version  = "23.2.1"
+    butterknife_version             = "7.0.1"
+    dagger_version                  = "2.2"
+    icepick_version                 = "3.1.0"
+    javax_inject_annotation_version = "10.0-b28"
+    mosby_version                   = "2.0.0"
+    retrofit_version                = "1.9.0"
+    rxandroid_version               = "0.24.0"
+    rxjava_version                  = "1.0.8"
+    timber_version                  = "2.5.0"
+    exRV_version                    = "2.1.1"
+    fastscroll_version              = "1.0.9"
+    materialintro_version           = "1.4"
+    stringutils_version             = "3.4"
+    materialripple_version          = "1.0.2"
+    recyclerviewanimations_version  = "2.2.3"
+    materialpreferences_version     = "0.8.1"
+    rxpreferences_version           = "1.0.1"
+    aboutlibraries_version          = "5.5.6@aar"
+    swipelistview_version           = "1.2.0@aar"
+
+    // TEST
+    junit_version                   = "4.11"
+    mockito_version                 = "1.10.19"
+}
+
+ext.libraries = [
+        // APP
+        android_support         : "com.android.support:support-v4:$android_support_version",
+        android_support_v7      : "com.android.support:appcompat-v7:$android_support_version",
+        android_support_design  : "com.android.support:design:$android_support_design_version",
+        android_support_rclrv   : "com.android.support:recyclerview-v7:$android_support_version",
+        butterknife             : "com.jakewharton:butterknife:$butterknife_version",
+        dagger                  : "com.google.dagger:dagger:$dagger_version",
+        icepick                 : "frankiesardo:icepick:$icepick_version",
+        javax_inject            : "org.glassfish:javax.annotation:$javax_inject_annotation_version",
+        mosby                   : "com.hannesdorfmann.mosby:mvp:$mosby_version",
+        retrofit                : "com.squareup.retrofit:retrofit:$retrofit_version",
+        rxandroid               : "io.reactivex:rxandroid:$rxandroid_version",
+        rxjava                  : "io.reactivex:rxjava:$rxjava_version",
+        timber                  : "com.jakewharton.timber:timber:$timber_version",
+        expandableRecyclerView  : "com.bignerdranch.android:expandablerecyclerview:$exRV_version",
+        fastscroll              : "com.simplecityapps:recyclerview-fastscroll:$fastscroll_version",
+        materialintro           : "com.heinrichreimersoftware:material-intro:$materialintro_version",
+        stringutils             : "org.apache.commons:commons-lang3:$stringutils_version",
+        materialripple          : "com.balysv:material-ripple:$materialripple_version",
+        recyclerviewanimations  : "jp.wasabeef:recyclerview-animators:$recyclerviewanimations_version",
+        materialpreferences     : "net.xpece.android:support-preference:$materialpreferences_version",
+        rxpreferences           : "com.f2prateek.rx.preferences:rx-preferences:$rxpreferences_version",
+        aboutlibraries          : "com.mikepenz:aboutlibraries:$aboutlibraries_version",
+        swipelistview           :  "com.daimajia.swipelayout:library:$swipelistview_version",
+
+        dagger_compiler         : "com.google.dagger:dagger-compiler:$dagger_version",
+        icepick_processor       : "frankiesardo:icepick-processor:$icepick_version",
+
+        // TEST
+        junit                   : dependencies.create("junit:junit:$junit_version"),
+        mockito                 : dependencies.create("org.mockito:mockito-core:$mockito_version"){
+            exclude group: 'org.hamcrest'
+        }
+]
+
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.1.0'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+        classpath 'com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.5.2'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven {
+            url 'repository'
+        }
+        maven {
+            url "https://clojars.org/repo/"         // needed for IcePick
+        }
+        maven {
+            url 'https://jitpack.io'
+        }
+    }
+}

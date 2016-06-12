@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Schnarchbox</string>
+    <string name="fragment_login_text">Super! Jetzt noch die letzten Daten und es kann losgehen!</string>
+    <string name="txtProjektHint">Projekt</string>
+    <string name="txtEinrichtungHint">Einrichtung</string>
+    <string name="welcome_slide_title">Willkommen bei MensaMenu</string>
+    <string name="welcome_slide_text">MensaMenu ist deine neue Mensa-App - dein Speiseplan immer verfügbar!</string>
+    <string name="title_about">Über</string>
+    <string name="mensa_url" translatable="false">http://mensawelten.de/MM_Android/Service1.svc/SpeiseplanExtern/WT,HTS,22,2016</string>
+    <string name="pref_projekt">Name des Projekts</string>
+    <string name="pref_einrichtung">Name der Einrichtung</string>
+    <string name="title_prefs">Einstellungen</string>
+    <string name="hint_scrollto">Zu aktuellem Datum scrollen</string>
+    <string name="hint_scrolltomain">Beim Anzeigen der Daten automatisch zu aktuellem Datum scrollen</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Schnarchbox</string>
+    <string name="fragment_login_text">Excellent! Now the last information and we are ready for takeoff!</string>
+    <string name="txtEinrichtungHint">Institution</string>
+    <string name="txtProjektHint">Project</string>
+    <string name="welcome_slide_text">MensaMenu is your new Mensa-App - your Mensa Menue everytime and everywhere!</string>
+    <string name="welcome_slide_title">Welcome to MensaMenu</string>
+    <string name="title_about">About</string>
+    <string name="title_prefs">Preferences</string>
+    <string name="pref_projekt">Name of project</string>
+    <string name="pref_einrichtung">Name of institution</string>
+    <string name="hint_scrollto">Scroll to current date</string>
+    <string name="hint_scrolltomain">Automatically scroll to current date when getting the data</string>
+</resources>
